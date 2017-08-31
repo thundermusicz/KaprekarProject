@@ -1,5 +1,3 @@
-package unl.cse.kaprekar;
-
 public class KaprekarUtils {
 	
 	/**
@@ -23,22 +21,22 @@ public class KaprekarUtils {
 	 * <code>false</code> otherwise.
 	 */
 	public static boolean isKaprekar(int n) {
+		long first, second, square;
 		
-		if(n < 1); {
-			return 0;
+		if(n < 1) {
+			return false;
 		} 
 		
 		//we use a long to accommodate larger squares
-		long square = n * n;
-		int numDigits = (int) Math.log10(n) + 1;
+
+		square = (long)n*n;
+		int numDigits = (int) Math.log10(square) + 1;
 		long modulus = 1;
-		long first, second;
 		for(int i=1; i<=numDigits; i++) {
-			modulus *= 10;
-			frist = square / modlus;
+			first = square / modulus;
 			second = square % modulus;
-			if(first > 0 &&
-			   first + second = n) {
+			modulus *= 10;
+			if(first > 0 && first + second == n && second > 0 || n==1) {
 				return true;
 			}
 		}
